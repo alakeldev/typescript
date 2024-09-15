@@ -116,3 +116,106 @@
 // }
 
 // console.log(addAll(10, 20, 30, 100, 10.5, +true));
+
+
+
+
+// Type anotations anonymous and arrow function
+
+// const add = function(num1: number, num2: number) : number {
+//     return num1 + num2;
+// }
+
+// console.log(add(10,20));
+
+// const addWithArrow = (num1: number, num2: number) : number => num1 + num2;
+
+// console.log(addWithArrow(10,20))
+
+
+
+// Data types , type alias
+
+// type st = string;
+
+// let theName: st = "Alakel";
+// theName = "Abdullah";
+
+// type standnum = string | number;
+
+// let all: standnum = 10;
+// all = 100;
+// all = "Abdullah";
+
+
+// Data types, type alias advanced
+
+// type Buttons = {
+//     up: string,
+//     right: string,
+//     down: string,
+//     left: string
+// }
+
+// type Last = Buttons & {
+//     x: boolean
+// }
+
+// function getActions(btns: Last) {
+//     console.log(`Action For Button Up Is ${btns.up}`)
+//     console.log(`Action For Button right Is ${btns.right}`)
+//     console.log(`Action For Button down Is ${btns.down}`)
+//     console.log(`Action For Button left Is ${btns.left}`)
+// }
+
+// getActions({up: "Go Up", right: "Go Right", down: "Go Down", left: "Go Left", x: true})
+
+
+
+
+//Data Types: Literal Types
+
+// type nums = 0 | 1 | -1;
+
+// function comapre(num1: number, num2: number): nums {
+//     if (num1 === num2) {
+//         return 0;
+//     }
+//     else if (num1 > num2) {
+//         return 1;
+//     }
+//     else {
+//         return -1;
+//     }
+// }
+
+// console.log(comapre(20, 20)); //0
+// console.log(comapre(20, 15)); //1
+// console.log(comapre(15, 20)); //-1
+
+// let myNumber: nums = 100; // here error becuase you can assign number 100 to nums becuase its type only 0 | 1 | -1
+
+// above we made custom type we can use it as a type in our project and what we can to return from the veriables or functions
+
+
+
+// Data Type: Tuple
+
+// Tuple
+// Is Another Sort Of Array Type
+// We knows exactly how many elements it contains 
+// We knows which types it contains at specific positions
+
+let article : readonly [number, string, boolean] = [11, "Title One", true];
+
+article = [12, "Title Two", false];
+
+// article.push(100); with readonly obove you cannot push new element to the tuple
+
+console.log(article);
+
+const [id, title, published] = article;   // Distructuring operation here create new variables and set its values from the tuple above
+
+console.log(id); // 12
+console.log(title);  // Title Two
+console.log(published); // false

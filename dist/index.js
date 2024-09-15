@@ -1,8 +1,9 @@
 "use strict";
-function addAll(...nums) {
-    let result = 0;
-    nums.forEach((num) => result += num);
-    return result;
-}
-console.log(addAll(10, 20, 30, 100, 10.5, +true));
+let article = [11, "Title One", true];
+article = [12, "Title Two", false];
+console.log(article);
+const [id, title, published] = article;
+console.log(id);
+console.log(title);
+console.log(published);
 //# sourceMappingURL=index.js.map
