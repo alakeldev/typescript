@@ -210,7 +210,7 @@ let article : readonly [number, string, boolean] = [11, "Title One", true];
 
 article = [12, "Title Two", false];
 
-// article.push(100); with readonly obove you cannot push new element to the tuple
+// article.push(100); with readonly obove you cannot push new element to the tuple if you remove readonly you can push new items to it
 
 console.log(article);
 
@@ -219,3 +219,15 @@ const [id, title, published] = article;   // Distructuring operation here create
 console.log(id); // 12
 console.log(title);  // Title Two
 console.log(published); // false
+
+
+
+// Data Types
+// Void
+// Function that will return nothing
+// Function In javascript tat not return a value will show undefined
+// undefined is not void
+// Never
+// Return Type never Returns
+// The function Doesnot Have a normal completion
+// It throws an error or never finishes running at all "Infinite Loop"
