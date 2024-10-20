@@ -454,3 +454,271 @@ console.log(published); // false
 // }
 
 // getActions({one: "String", two: 100, three: true, five: false});
+
+
+
+// Type Anotations with Object
+
+// let myObject: {
+//     readonly username: string,
+//     id: number,
+//     hire?: boolean,
+//     skills: {
+//         one: string,
+//         two: string
+//     }
+// } = {
+//     username: "Alakel",
+//     id: 100,
+    // hire: false, becuase above the hire ? so it's no required and not cause an error if not written here!!!
+//     skills: {
+//         one: "html",
+//         two: "css"
+//     }
+// };
+
+// myObject.username = "Abdullah";    Error becuase it'S a read only cannot update its value
+// myObject.id = 101;
+// myObject.hire = false;
+
+// console.log(myObject.username);
+// console.log(myObject.id);
+// console.log(myObject.hire);
+// console.log(myObject.skills.one);
+// console.log(myObject.skills.two);
+
+// Interface
+// Interface Declaration
+// Serve Like Types
+// The Interface Describes The Shape Of an Object
+// It defines the syntax to follow
+
+// Use With Object
+// Use with Function
+// Use Read only and Optional Operator
+
+// interface User {
+//     id: number,
+//     username: string,
+//     country: string
+// }
+
+// let user: User = {
+//     id: 100,
+//     username: "Alakel",
+//     country: "Syria"
+// }
+
+// console.log(user);
+
+// // Example with function
+
+// function getData(data: User) {
+//     console.log(`id is ${data.id}`);
+//     console.log(`username is ${data.username}`);
+//     console.log(`country is ${data.country}`);
+// }
+
+// getData({ id:200, username: "Alakel", country: "SY-Damascus" });
+
+// Interface Method and Parameters
+
+// interface User {
+//     id: number,
+//     username: string,
+//     country: string,
+//     sayHello() : string,
+//     sayWelcome: () => string,
+//     getDouble(num: number) : number
+// }
+
+// let user: User = {
+//     id: 100,
+//     username: "Alakel",
+//     country: "Syria",
+//     sayHello() {
+//         return `Hello ${this.username}`;
+//     },
+//     sayWelcome: () => {
+//         return `Welcome ${user.username}`;
+//     },
+//     getDouble(n) {
+//         return n * 2;
+//     }
+
+// }
+
+// console.log(user.id);
+// console.log(user.sayHello());
+// console.log(user.sayWelcome());
+// console.log(user.getDouble(100));
+
+// Interface ReOpen and use cases
+
+// // Home Page:
+// interface Settings {
+//     theme: boolean;
+//     font: string;
+// }
+
+// //  Articiles Page:
+// interface Settings {
+//     sidebar: boolean;
+// }
+
+// // Contact Page
+// interface Settings {
+//     external: boolean;
+// }
+
+// let userSettings: Settings = {
+//     theme: true,
+//     font: "Open Sans",
+//     sidebar: false,
+//     external: true
+// }
+
+// Interface Extend
+
+// interface User {
+//     id: number;
+//     username: string;
+//     country: string;
+// }
+
+// interface Moderator extends User{
+//     role: string | number
+// }
+
+// interface Admin extends User, Moderator{
+//     protect: boolean;
+// }
+
+// let user: Admin = {
+//     id: 100,
+//     username: "Alakel",
+//     country: "Syria",
+//     role: "Mod",
+//     protect: true
+// }
+
+// console.log(user.id);
+
+// Interface Final Discussion
+// Interface vs Type Aliases
+// Take a look on HTMLelement Interface
+
+// let el = document.getElementById("id") as HTMLElement;
+
+// Class Type Annotations (Type Annotations with Class)
+
+// class User {
+//     u: string;
+//     s: number;
+//     msg: () => string;
+//     constructor(username: string, salary: number) {
+//         this.u = username;
+//         this.s = salary;
+//         this.msg = function() {
+//             return `Hello ${this.u} Your Salary Is ${this.s}`;
+//         }
+//     }
+//     sayMsg() {
+//         return `Hello ${this.u} Your Salary Is ${this.s}`;
+//     }
+// }
+
+// let userOne = new User("Alakel", 5000);
+
+// console.log(userOne.u);
+// console.log(userOne.s);
+// console.log(userOne.msg());
+// console.log(userOne.sayMsg());
+
+// Class Access Modifiers and Parameters Properties
+
+// Public
+// All Members Of a Class in Typescript are public
+// All Public members can be accessed anythwere without any Restrictions
+
+// Private
+// Members are visible only to that class and are not accessible outside the class
+
+// Protected
+// Same like private but can be accessed using the deriving class
+
+// Typescript is a layer on top of Javascript
+// It should remove all annotations and although access modifiers "Private for example"
+
+// class User {
+//     msg: () => string;
+//     constructor(private username: string, protected salary: number, public readonly address: string) {
+//         this.msg = function() {
+//             return `Hello ${this.username} Your Salary Is ${this.salary}`;
+//         }
+//     }
+//     sayMsg() {
+//         return `Hello ${this.username} Your Salary Is ${this.salary}`;
+//     }
+// }
+
+// let userOne = new User("Alakel", 5000, "Syria");
+
+// console.log(userOne.u);
+// console.log(userOne.s);
+// console.log(userOne.msg());
+// console.log(userOne.sayMsg());
+
+// Class Accessors
+// Get and Set Accessors
+
+// class User {
+//     msg: () => string;
+//     constructor(private _username: string, public salary: number, public readonly address: string) {
+//         this.msg = function() {
+//             return `Hello ${this._username} Your Salary Is ${this.salary}`;
+//         }
+//     }
+//     sayMsg() {
+//         return `Hello ${this._username} Your Salary Is ${this.salary}`;
+//     }
+
+//     get username() : string {
+//         return this._username;
+//     }
+
+//     set username(value: string) {
+//         this._username = value;
+//     }
+// }
+
+// let userOne = new User("Alakel", 5000, "Syria");
+
+// console.log(userOne.username);
+// userOne.username = "Abode";
+// console.log(userOne.username);
+// console.log(userOne.salary);
+// console.log(userOne.msg());
+// console.log(userOne.sayMsg());
+
+// Class
+// Static Members
+// Don't user "name, length, call"
+
+class User {
+    static created: number = 0;
+    static getCount() : void {
+        console.log(`${this.created} Objects Created`);
+    }
+
+    constructor( public username: string) {
+        User.created++;
+    }
+}
+
+let u1 = new User("Alakel");
+let u2 = new User("Abode");
+let u3 = new User("Abd");
+let u4 = new User("Mama");
+
+User.getCount();

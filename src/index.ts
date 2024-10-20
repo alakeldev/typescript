@@ -717,21 +717,21 @@
 // Static Members
 // Don't user "name, length, call"
 
-class User {
-    static created: number = 0;
-    static getCount() : void {
-        console.log(`${this.created} Objects Created`);
-    }
+// class User {
+//     static created: number = 0;
+//     static getCount() : void {
+//         console.log(`${this.created} Objects Created`);
+//     }
 
-    constructor( public username: string) {
-        User.created++;
-    }
-}
+//     constructor( public username: string) {
+//         User.created++;
+//     }
+// }
 
 
-let u1 = new User("Alakel");
-let u2 = new User("Abode");
-let u3 = new User("Abd");
-let u4 = new User("Mama");
+// let u1 = new User("Alakel");
+// let u2 = new User("Abode");
+// let u3 = new User("Abd");
+// let u4 = new User("Mama");
 
-User.getCount();
+// User.getCount();
