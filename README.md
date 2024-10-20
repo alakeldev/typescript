@@ -722,3 +722,233 @@ let u3 = new User("Abd");
 let u4 = new User("Mama");
 
 User.getCount();
+
+
+
+// Class Implement Interface
+
+// interface Settings {
+//     theme: boolean;
+//     font: string;
+//     save(): void;
+// }
+
+// class User implements Settings {
+//     constructor(public username:string, public theme: boolean, public font: string) {
+
+//     }
+
+//     save(): void {
+//         console.log(`saved`);
+//     }
+
+//     update(): void {
+//         console.log(`updated`)
+//     }
+// }
+
+// let userOne = new User("Alakel", true, "Sane seref");
+
+// console.log(userOne.username)
+// console.log(userOne.font)
+
+// userOne.save()
+// userOne.update()
+
+// Abstract Class and Members
+// We cannot create and instance of an abstract class
+
+// abstract class Food {
+//     constructor(public title: string) {}
+
+//     abstract getCookingtime(): void
+// }
+
+// class Pizza extends Food {
+//     constructor(title: string, public price: number) {
+//         super(title);
+//     }
+
+//     getCookingtime(): void {
+//         console.log(`Cooking time for Pizza is one hour`)
+//     }
+// }
+
+// class Burger extends Food {
+//     constructor(title: string, public price: number) {
+//         super(title);
+//     }
+
+//     getCookingtime(): void {
+//             console.log(`Cooking time for Bruger is one hour`)
+//         }
+// }
+
+// let pizzaOne = new Pizza("Peporone", 100);
+
+// console.log(pizzaOne.title);
+// console.log(pizzaOne.price);
+
+// pizzaOne.getCookingtime();
+
+//Class  
+// Polymorphism & Method Override
+
+// polymorphism
+// Classes have the same methods but different Implementations
+
+// Methods Override
+// Allowing Child class to provide implementation of a method in parent class
+// a method in child class must has same name as parent class
+
+// noImplicitOverride
+
+// class Player {
+//     constructor(public name:string) {}
+//     attack(): void {
+//         console.log("Attacking now");
+//     }
+// }
+
+// class Amazon extends Player {
+//     constructor(name: string, public spears: number) {
+//         super(name)
+//     }
+//     override attack(): void {
+//         // super.attack();
+//         console.log("Attacking with Spear");
+//         this.spears -= 1;
+//     }
+// }
+
+// class Barbarian extends Player {
+//     constructor(name: string, public axeDurability: number) {
+//         super(name)
+//     }
+//     override attack(): void {
+//         // super.attack();
+//         console.log("Attacking with Axe");
+//         this.axeDurability -= 1;
+//     }
+// }
+
+// let barOne = new Barbarian("Alakel", 100);
+
+// console.log(barOne.name);
+// barOne.attack();
+// console.log(barOne.axeDurability);
+
+// Generics Introduction
+
+// Help write a reusable code
+// allow to pass type as a parameter to another type
+// you will be able to deal with multiple types without using ": any type"
+// we can create:
+    // Generic Classes
+    // Generic Functions
+    // Generic Methods
+    // Generic Interfaces
+
+// The example below is without using the generic way
+
+// function returnNumber(val: number): number {
+//     return val;
+// }
+
+// function returnString(val: string): string {
+//     return val;
+// }
+
+// function returnBoolean(val: boolean): boolean {
+//     return val;
+// }
+
+// console.log(returnNumber(10));
+// console.log(returnString("Hello"));
+// console.log(returnBoolean(true));
+
+// With using the generic
+
+// function returnType<GenericType>(val: GenericType) : GenericType {
+//     return val;
+// }
+
+// console.log(returnType<number>(10));
+// console.log(returnType<string>("Hello"));
+// console.log(returnType<boolean>(true));
+// console.log(returnType<number[]>([1,2,3,4]));
+
+// Generics Multiple Types
+// Arrow Function
+// Multiple Types
+// Discussion
+
+// const returnTypeArrowSyntax = <T>(val: T): T => val;
+
+// console.log(returnTypeArrowSyntax<number>(100));
+// console.log(returnTypeArrowSyntax<string>("Alakel"));
+
+// Important to understand the case here
+// function testType<T>(val: T): string {
+//     return `The Value is ${val} and Type is ${typeof val}`;
+// }
+
+// console.log(testType<number>(100));
+// console.log(testType<string>("Alakel"));
+
+// Important to understand the Multiple types
+// function multipleTypes<T, S>(valOne: T, valTwo: S): string {
+//     return `The first Value is ${valOne} and second value is ${valTwo}`;
+// }
+
+// console.log(multipleTypes<string, number>("Alakel", 100));
+// console.log(multipleTypes<string, boolean>("Alakel", true));
+
+// Generics Classes
+
+// class User<T = number> {    // Here the default type is string but you can insert any another type
+//     constructor(public value: T) {}
+//     show(msg: T) :void {
+//         console.log(`${msg} - ${this.value}`);
+//     }
+// }
+
+// let userOne = new User("Alakel");
+// console.log(userOne.value);
+// userOne.show("Message");
+
+// let userTwo = new User<number | string>(100);
+// console.log(userOne.value);
+// userTwo.show("Message");
+
+// Generics and Interfaces
+
+interface Book {
+    itemType: string;
+    title: string;
+    isbn: number;
+}
+
+interface Game {
+    itemType: string;
+    title: string;
+    style: string;
+    price: number;
+}
+
+class Collection<T> {
+    public data: T[] = [];
+    add(item: T) : void {
+        this.data.push(item);
+    }
+}
+
+let itemOne = new Collection<Book>();
+itemOne.add({ itemType: "Book", title: "Atmomic" , isbn: 111111222 });
+itemOne.add({ itemType: "Book", title: "Follow me" , isbn: 454544000 });
+
+console.log(itemOne);
+
+let itemTwo = new Collection<Game>();
+itemTwo.add({ itemType: "Game", title: "Call of duty", style: "Action", price:100 });
+console.log(itemTwo);
