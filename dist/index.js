@@ -1,17 +1,17 @@
 "use strict";
-class User {
-    static getCount() {
-        console.log(`${this.created} Objects Created`);
+class Collection {
+    constructor() {
+        this.data = [];
     }
-    constructor(username) {
-        this.username = username;
-        User.created++;
+    add(item) {
+        this.data.push(item);
     }
 }
-User.created = 0;
-let u1 = new User("Alakel");
-let u2 = new User("Abode");
-let u3 = new User("Abd");
-let u4 = new User("Mama");
-User.getCount();
+let itemOne = new Collection();
+itemOne.add({ itemType: "Book", title: "Atmomic", isbn: 111111222 });
+itemOne.add({ itemType: "Book", title: "Follow me", isbn: 454544000 });
+console.log(itemOne);
+let itemTwo = new Collection();
+itemTwo.add({ itemType: "Game", title: "Call of duty", style: "Action", price: 100 });
+console.log(itemTwo);
 //# sourceMappingURL=index.js.map
